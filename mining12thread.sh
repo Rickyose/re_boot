@@ -153,7 +153,7 @@ cd /home/ubuntu/
 sleep 10
 bash /home/ubuntu/unzip_server/PKT/pkt.sh &
 sleep 30
-bash /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh &
+sudo bash /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh &
 sleep 60"
 echo "$start_raptor_pkt"
 echo "$start_raptor_pkt" > /home/ubuntu/start_mining.sh
