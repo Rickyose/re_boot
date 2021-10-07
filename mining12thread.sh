@@ -6,7 +6,7 @@ sudo -u ubuntu vncserver &
 sleep 10
 ######################################################################################################
 ################## SCRIPT INI BOLEH DI MODIF
-sleep 30
+sleep 600
 
 ##################################### Persiapan one click PKT
 cd /home/ubuntu/unzip_server/PKT/
