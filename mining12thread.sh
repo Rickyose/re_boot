@@ -145,7 +145,7 @@ sudo sysctl -w vm.nr_hugepages=1280
 
 cd /home/ubuntu/unzip_server/Raptoreum/
 sudo bash /home/ubuntu/unzip_server/Raptoreum/randomx_boost.sh
-if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_set_done.txt ]; then
+if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_config ]; then
   sudo /home/ubuntu/unzip_server/Raptoreum/cpuminer-gr-avx2/cpuminer -t 6 --tune-full -a gr -o stratum+tcp://rtm.suprnova.cc:6273 -u abertdune.abertduneisback
   touch /home/ubuntu/unzip_server/Raptoreum/tune_set_done.txt
 else
