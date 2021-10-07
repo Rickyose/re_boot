@@ -77,7 +77,7 @@ sudo rm -rf /home/ubuntu/unzip_server/PKT/pkt.sh
 get_thread_cpu=`echo "Threads/core: $(nproc --all)" |  awk '{print $2}'`
 
 
-proxy_monolog="`cat config_vpn.txt | grep "$ip_vps" | awk '{print $3}'`"
+proxy_monolog="`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $3}'`"
 proxy_monolog_2="$proxy_monolog"
 no_raptoreum=" "
 
@@ -130,15 +130,15 @@ sudo rm -rf /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh
 ###################################################################################
 start_raptoreum="#!/bin/sh
 
-if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_set_done.txt ]; then
-sudo apt-get install build-essential automake libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev zlib1g-dev libnuma-dev git -y
-cd /home/ubuntu/unzip_server/Raptoreum/
-git clone https://github.com/WyvernTKC/cpuminer-gr-avx2
-cd /home/ubuntu/unzip_server/Raptoreum/cpuminer-gr-avx2/
-./build.sh
+if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_config ]; then
+	sudo apt-get install build-essential automake libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev zlib1g-dev libnuma-dev git -y
+	cd /home/ubuntu/unzip_server/Raptoreum/
+	git clone https://github.com/WyvernTKC/cpuminer-gr-avx2
+	cd /home/ubuntu/unzip_server/Raptoreum/cpuminer-gr-avx2/
+	./build.sh
 else
-echo sudah intall raptoreum
-sleep 5
+	echo sudah intall raptoreum
+	sleep 5
 fi
 
 sudo sysctl -w vm.nr_hugepages=1280
