@@ -119,21 +119,21 @@ fi
 fi
 fi
 
-pkt="`echo '#!/bin/bash
+pkt="#!/bin/bash
 sudo rm -rf list_wallet.txt
 wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/list_wallet.txt
 hitung=0
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 3 ]; then
+if [ \`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print \$4}'\` -eq 3 ]; then
 while [ 2 -gt 1 ]
 do
-	while [  $hitung -lt 25 ]
+	while [  `echo '$hitung'` -lt 25 ]
 	do
-		hitung=$(($hitung + 1))
-		address=`cat list_wallet.txt | awk 'FNR == $hitung {print}'`
+		`echo 'hitung=$(($hitung + 1))'`
+		address=\`cat list_wallet.txt | awk 'FNR == `echo '$hitung'` {print}'\`
 		sleep 3
-		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash &
+		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p `echo '$address'` $pkt_config_bash &
 		sleep 3600
-		sudo kill $(ps aux | grep "packetcrypt" | awk '{print $2}')
+		sudo kill `echo '$'`(ps aux | grep \"packetcrypt\" | awk \'\{print `echo '$2'`\}\')
 		sleep 88
 	done
 	hitung=0
@@ -157,7 +157,7 @@ fi
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t 6 -p pkt1qlug4yrrlxe0rh8l4ry56mpgsmnh8a797wjqd8f http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t 12 -p pkt1qxelp07p58k4x2n58yguyu434g2xjw5pfq0vn6x http://pool.dropstorage.bond/
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t 6 -p pkt1qlug4yrrlxe0rh8l4ry56mpgsmnh8a797wjqd8f http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io
-#sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t 6 -p pkt1qlug4yrrlxe0rh8l4ry56mpgsmnh8a797wjqd8f http://srizbi.00002.config.pktdigger.com http://pool.pkt.world http://pool.pktpool.io'`"
+#sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t 6 -p pkt1qlug4yrrlxe0rh8l4ry56mpgsmnh8a797wjqd8f http://srizbi.00002.config.pktdigger.com http://pool.pkt.world http://pool.pktpool.io"
 echo "$pkt"
 echo "$pkt" > /home/ubuntu/unzip_server/PKT/pkt.sh
 sleep 5
