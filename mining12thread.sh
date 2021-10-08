@@ -6,7 +6,7 @@ sudo -u ubuntu vncserver &
 sleep 10
 ######################################################################################################
 ################## SCRIPT INI BOLEH DI MODIF
-sleep 600
+sleep 6
 
 ##################################### Persiapan one click PKT
 cd /home/ubuntu/unzip_server/PKT/
@@ -119,20 +119,16 @@ fi
 fi
 fi
 
-
-
 pkt="#!/bin/bash
-
 sudo rm -rf list_wallet.txt
 wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/list_wallet.txt
 hitung=0
-
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 8 ]; then
+if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 3 ]; then
 while [ 2 -gt 1 ]
 do
-	while [ $hitung -lt 25 ]
+	while [ `echo '$hitung'` -lt 25 ]
 	do
-		hitung=$(($hitung + 1))
+		`echo 'hitung=$(($hitung + 1))'`
 		address=`cat list_wallet.txt | awk 'FNR == $hitung {print}'`
 		sleep 3
 		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash &
@@ -146,8 +142,6 @@ done
 else
 	sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash
 fi
-
-
 #while [ 2 -gt 1 ]
 #do
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash
@@ -159,7 +153,6 @@ fi
 #sudo kill $(ps aux | grep "packetcrypt" | awk '{print $2}')
 #sleep 60
 #done
-
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p pkt1qxelp07p58k4x2n58yguyu434g2xjw5pfq0vn6x http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t 6 -p pkt1qlug4yrrlxe0rh8l4ry56mpgsmnh8a797wjqd8f http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t 12 -p pkt1qxelp07p58k4x2n58yguyu434g2xjw5pfq0vn6x http://pool.dropstorage.bond/
@@ -175,7 +168,6 @@ cd /home/ubuntu/
 sudo rm -rf /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh
 ###################################################################################
 start_raptoreum="#!/bin/sh
-
 if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_config ]; then
 	sudo apt-get install build-essential automake libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev zlib1g-dev libnuma-dev git -y
 	cd /home/ubuntu/unzip_server/Raptoreum/
@@ -186,9 +178,7 @@ else
 	echo sudah intall raptoreum
 	sleep 5
 fi
-
 sudo sysctl -w vm.nr_hugepages=1280
-
 cd /home/ubuntu/unzip_server/Raptoreum/
 sudo bash /home/ubuntu/unzip_server/Raptoreum/randomx_boost.sh
 if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_config ]; then
