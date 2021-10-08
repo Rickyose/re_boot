@@ -123,10 +123,30 @@ fi
 
 pkt="#!/bin/bash
 
+sudo rm -rf list_wallet.txt
+wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/list_wallet.txt
+hitung=0
 
+if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 8 ]; then
+while [ 2 -gt 1 ]
+do
+	while [ $hitung -lt 25 ]
+	do
+		hitung=$(($hitung + 1))
+		address=`cat list_wallet.txt | awk 'FNR == $hitung {print}'`
+		sleep 3
+		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash &
+		sleep 3600
+		sudo kill $(ps aux | grep "packetcrypt" | awk '{print $2}')
+		sleep 88
+	done
+	hitung=0
+	sleep 5
+done
+else
+	sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash
+fi
 
-while [ 
-sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash
 
 #while [ 2 -gt 1 ]
 #do
