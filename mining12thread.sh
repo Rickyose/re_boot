@@ -76,8 +76,8 @@ sudo rm -rf /home/ubuntu/unzip_server/PKT/pkt.sh
 
 get_thread_cpu=`echo "Threads/core: $(nproc --all)" |  awk '{print $2}'`
 
-
-proxy_monolog="`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $3}'`"
+ip_vps=`curl ifconfig.me`
+proxy_monolog="`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep $ip_vps | awk '{print $3}'`"
 proxy_monolog_2="$proxy_monolog"
 no_raptoreum=" "
 
