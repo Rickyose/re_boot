@@ -129,7 +129,8 @@ do
 	while [  `echo '$hitung'` -lt 25 ]
 	do
 		`echo 'hitung=$(($hitung + 1))'`
-		address=\`cat list_wallet.txt | awk 'FNR == `echo '$hitung'` {print}'\`
+		export  address=\`cat /home/ubuntu/source_dir_list.txt | sed -n "\$hitung"P\`
+		#address=\`cat list_wallet.txt | awk 'FNR == `echo '$hitung'` {print}'\`
 		sleep 3
 		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p `echo '$address'` $pkt_config_bash &
 		sleep 3600
