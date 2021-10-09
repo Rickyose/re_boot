@@ -165,6 +165,13 @@ fi
 fi
 fi
 
+if [ $get_thread_cpu -lt 6 ]; then
+address="pkt1qa4ga3dsn9mj2sea4f86x9aaa2qd8skau86j7xg"
+openvpn="sudo openvpn --config $vpn_config &"
+vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
+no_raptoreum="#"
+fi
+
 pkt="#!/bin/bash
 sudo rm -rf list_wallet.txt
 wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/list_wallet.txt
