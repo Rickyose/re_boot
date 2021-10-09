@@ -30,11 +30,41 @@ if [ $get_openvpn_config -eq 0 ]; then
 				get_openvpn_config=1
 			else
 				echo "BELUM ADA CONFIG VPN UNTUK VPS INI"
-				sleep 10
+				pre_message="$@======================================================="
+				message="$@BELUM ADA CONFIG VPN UNTUK VPS INI: `curl ifconfig.me`"
+				pasca_message="$@======================================================="
+				## format to parse to curl
+				## echo Sending message: $message
+				msg_pre_content=\"$pre_message\"
+				msg_content=\"$message\"
+				msg_pasca_content=\"$pasca_message\"
+				## discord webhook
+				url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+				curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pre_content}" $url
+				url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+				curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_content}" $url
+				url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+				curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pasca_content}" $url
+				sleep 600
 			fi
 		else
 			echo "CONFIG VPN SUDAH DIPAKAI 5 VPS ATAU LEBIH"
-			sleep 10
+			pre_message="$@======================================================="
+			message="$@CONFIG VPN SUDAH DIPAKAI 5 VPS ATAU LEBIH: `curl ifconfig.me`"
+			pasca_message="$@======================================================="
+			## format to parse to curl
+			## echo Sending message: $message
+			msg_pre_content=\"$pre_message\"
+			msg_content=\"$message\"
+			msg_pasca_content=\"$pasca_message\"
+			## discord webhook
+			url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+			curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pre_content}" $url
+			url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+			curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_content}" $url
+			url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+			curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pasca_content}" $url
+			sleep 600
 		fi
 	done
 
