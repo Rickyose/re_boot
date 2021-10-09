@@ -123,7 +123,7 @@ pkt="#!/bin/bash
 sudo rm -rf list_wallet.txt
 wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/list_wallet.txt
 hitung=0
-if [ \`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print \$4}'\` -eq 3 ]; then
+if [ \`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print \$4}'\` -ge 3 ]; then
 while [ 2 -gt 1 ]
 do
 	while [  `echo '$hitung'` -lt 25 ]
