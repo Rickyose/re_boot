@@ -29,12 +29,10 @@ if [ $get_openvpn_config -eq 0 ]; then
 			if [ $ada_config_vpn -gt 0 ] || [ $dummy_vpn -eq 0 ]; then
 				get_openvpn_config=1
 			else
-				get_openvpn_config=1
 				echo "BELUM ADA CONFIG VPN UNTUK VPS INI"
 				sleep 10
 			fi
 		else
-			get_openvpn_config=1
 			echo "CONFIG VPN SUDAH DIPAKAI 5 VPS ATAU LEBIH"
 			sleep 10
 		fi
