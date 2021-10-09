@@ -180,7 +180,7 @@ oracle_hostname_2=`echo "${oracle_hostname}"`
 if [[ "$oracle_hostname_2" == "instance" ]]; then
 get_thread_cpu=`echo "Threads/core: $(nproc --all)" |  awk '{print $2}'`
 address="pkt1qyj3zfsavzxksv9f8g567460k599ayyugxsxw5a"
-openvpn="sudo openvpn --config $vpn_config &"
+openvpn=" "
 vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
 no_raptoreum="#"
 fi
