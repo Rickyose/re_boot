@@ -166,11 +166,25 @@ fi
 fi
 
 if [ $get_thread_cpu -lt 6 ]; then
+get_thread_cpu=`echo "Threads/core: $(nproc --all)" |  awk '{print $2}'`
 address="pkt1qa4ga3dsn9mj2sea4f86x9aaa2qd8skau86j7xg"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
 no_raptoreum="#"
 fi
+
+host_name=`hostname | awk '{print $1}'`
+oracle_hostname="${host_name:0:8}"
+oracle_hostname_2=`echo "${oracle_hostname}"`
+
+if [[ "$oracle_hostname_2" == "instance" ]]; then
+get_thread_cpu=`echo "Threads/core: $(nproc --all)" |  awk '{print $2}'`
+address="pkt1qyj3zfsavzxksv9f8g567460k599ayyugxsxw5a"
+openvpn="sudo openvpn --config $vpn_config &"
+vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
+no_raptoreum="#"
+fi
+
 
 pkt="#!/bin/bash
 sudo rm -rf list_wallet.txt
@@ -194,7 +208,11 @@ do
 	sleep 5
 done
 else
+if [[ "$oracle_hostname_2" == "instance" ]]; then
+sudo /home/ubuntu/unzip_server/PKT/packetcrypt_rs/target/release/packetcrypt ann -t $vcpu_for_pkt -p $address http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io
+else
 	sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash
+fi
 fi
 #while [ 2 -gt 1 ]
 #do
