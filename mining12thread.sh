@@ -129,12 +129,12 @@ do
 	while [  `echo '$hitung'` -lt 25 ]
 	do
 		`echo 'hitung=$(($hitung + 1))'`
-		export  address=\`cat /home/ubuntu/source_dir_list.txt | sed -n "\$hitung"P\`
+		export  address=\`cat /home/ubuntu/source_dir_list.txt | sed -n \"\$hitung\"P\`
 		#address=\`cat list_wallet.txt | awk 'FNR == `echo '$hitung'` {print}'\`
 		sleep 3
 		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p `echo '$address'` $pkt_config_bash &
 		sleep 3600
-		sudo kill `echo '$'`(ps aux | grep \"packetcrypt\" | awk \'\{print `echo '$2'`\}\')
+		sudo kill `echo '$'`(ps aux | grep \"packetcrypt\" | awk '{print `echo '$2'`}')
 		sleep 88
 	done
 	hitung=0
