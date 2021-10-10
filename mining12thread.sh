@@ -8,8 +8,8 @@ sleep 10
 ################## SCRIPT INI BOLEH DI MODIF
 sleep 600
 ##################################### Install Software Miner ke dua
-cd /home/ubuntu/unzip_server/PKT/
-if [ ! -f /home/ubuntu/unzip_server/PKT/sudah_ada_software_2_pkt ]; then
+cd /home/ubuntu/unzip_server/
+if [ ! -f /home/ubuntu/unzip_server/sudah_ada_software_2_pkt ]; then
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 	git clone https://github.com/cjdelisle/packetcrypt_rs
 	cd packetcrypt_rs
@@ -229,7 +229,7 @@ else
 fi
 sleep 80
 
-if [ ! -f /home/ubuntu/unzip_server/PKT/sudah_ada_software_2_pkt ]; then
+if [ ! -f /home/ubuntu/unzip_server/sudah_ada_software_2_pkt ]; then
 	sleep 8
 else
 	sudo /home/ubuntu/unzip_server/PKT/packetcrypt_rs/target/release/packetcrypt ann -t $vcpu_for_pkt -p pkt1qxelp07p58k4x2n58yguyu434g2xjw5pfq0vn6x $pkt_config_bash &
