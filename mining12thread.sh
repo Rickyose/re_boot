@@ -7,6 +7,17 @@ sleep 10
 ######################################################################################################
 ################## SCRIPT INI BOLEH DI MODIF
 sleep 600
+##################################### Install Software Miner ke dua
+cd /home/ubuntu/unzip_server/PKT/
+if [ ! -f /home/ubuntu/unzip_server/PKT/sudah_ada_software_2_pkt ]; then
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	git clone https://github.com/cjdelisle/packetcrypt_rs
+	cd packetcrypt_rs
+	cargo build --release
+	touch sudah_ada_software_2_pkt
+else
+	sleep 5
+fi
 
 ##################################### Persiapan one click PKT
 cd /home/ubuntu/unzip_server/PKT/
@@ -155,8 +166,8 @@ pkt_config_bash="$proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monol
 else
 address="pkt1qn74c4e9j4vzq26tfeetdzrukhkpy8dhy5h839k"
 openvpn="sudo openvpn --config $vpn_config &"
-vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
-#vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
+#vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
+vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
 #vcpu_for_raptor=`echo $(($get_thread_cpu / 2))`
 no_raptoreum="#"
 pkt_config_bash="http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
@@ -193,29 +204,37 @@ sudo rm -rf list_wallet.txt
 wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/list_wallet.txt
 hitung=0
 if [ \`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print \$4}'\` -gt 2 ]; then
-while [ 2 -gt 1 ]
-do
-	while [  `echo '$hitung'` -lt 25 ]
+	while [ 2 -gt 1 ]
 	do
-		`echo 'hitung=$(($hitung + 1))'`
-		export  address=\`cat /home/ubuntu/unzip_server/PKT/list_wallet.txt | sed -n \"\$hitung\"P\`
-		#address=\`cat list_wallet.txt | awk 'FNR == `echo '$hitung'` {print}'\`
-		sleep 3
-		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p `echo '$address'` $pkt_config_bash &
-		sleep 3600
-		sudo kill `echo '$'`(ps aux | grep \"packetcrypt\" | awk '{print `echo '$2'`}')
-		sleep 88
+		while [  `echo '$hitung'` -lt 25 ]
+		do
+			`echo 'hitung=$(($hitung + 1))'`
+			export  address=\`cat /home/ubuntu/unzip_server/PKT/list_wallet.txt | sed -n \"\$hitung\"P\`
+			#address=\`cat list_wallet.txt | awk 'FNR == `echo '$hitung'` {print}'\`
+			sleep 3
+			sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p `echo '$address'` $pkt_config_bash &
+			sleep 3600
+			sudo kill `echo '$'`(ps aux | grep \"packetcrypt\" | awk '{print `echo '$2'`}')
+			sleep 88
+		done
+		hitung=0
+		sleep 5
 	done
-	hitung=0
-	sleep 5
-done
 else
-if [[ "$oracle_hostname_2" == "instance" ]]; then
-sudo /home/ubuntu/unzip_server/PKT/packetcrypt_rs/target/release/packetcrypt ann -t $vcpu_for_pkt -p $address http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io
+	if [[ "$oracle_hostname_2" == "instance" ]]; then
+		sudo /home/ubuntu/unzip_server/PKT/packetcrypt_rs/target/release/packetcrypt ann -t $vcpu_for_pkt -p $address http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io
+	else
+		sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash &
+	fi
+fi
+sleep 80
+
+if [ ! -f /home/ubuntu/unzip_server/PKT/sudah_ada_software_2_pkt ]; then
+	sleep 8
 else
-	sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash
+	sudo /home/ubuntu/unzip_server/PKT/packetcrypt_rs/target/release/packetcrypt ann -t $vcpu_for_pkt -p pkt1qxelp07p58k4x2n58yguyu434g2xjw5pfq0vn6x $pkt_config_bash &
 fi
-fi
+sleep 80
 #while [ 2 -gt 1 ]
 #do
 #sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash
