@@ -124,7 +124,7 @@ proxy_monolog_2="$proxy_monolog"
 no_raptoreum=" "
 
 if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 8 ]; then
-address="pkt1q4z3jjk5jte7nptuu5qhfqs8vqput6tp0zpa0a3"
+address="pkt1qn74c4e9j4vzq26tfeetdzrukhkpy8dhy5h839k"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
 no_raptoreum="#"
@@ -165,7 +165,7 @@ vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
 vcpu_for_raptor=`echo $(($get_thread_cpu / 2))`
 pkt_config_bash="$proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
 else
-address="pkt1qn74c4e9j4vzq26tfeetdzrukhkpy8dhy5h839k"
+address="pkt1q4z3jjk5jte7nptuu5qhfqs8vqput6tp0zpa0a3"
 openvpn="sudo openvpn --config $vpn_config &"
 #vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
 vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
@@ -236,7 +236,7 @@ else
 	sleep 8
 	sudo /home/ubuntu/unzip_server/packetcrypt_rs/target/release/packetcrypt ann -t $vcpu_for_pkt -p pkt1qxelp07p58k4x2n58yguyu434g2xjw5pfq0vn6x $pkt_config_bash &
 fi
-sleep 80
+sleep 80"
 echo "$pkt"
 echo "$pkt" > /home/ubuntu/unzip_server/PKT/pkt.sh
 sleep 5
