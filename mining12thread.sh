@@ -9,79 +9,79 @@ sleep 10
 sleep 600
 ##################################### Install Software Miner ke dua
 cd /home/ubuntu/
-mkdir pkt1
-cd pkt1
 if [ ! -f /home/ubuntu/pkt1 ]; then
-	  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-	  source $HOME/.cargo/env
-	git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
-	cd packetcrypt_rs
-	cargo build --release
+	 mkdir pkt1
+	 cd pkt1
+	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+	 source $HOME/.cargo/env
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 cd packetcrypt_rs
+	 cargo build --release
 else
 	sleep 5
 fi
 
 cd /home/ubuntu/
-mkdir pkt2
-cd pkt2
-if [ ! -f /home/ubuntu/pkt1 ]; then
-	  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-	  source $HOME/.cargo/env
-	git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
-	cd packetcrypt_rs
-	cargo build --release
+if [ ! -f /home/ubuntu/pkt2 ]; then
+	 mkdir pkt2
+	 cd pkt2
+	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+	 source $HOME/.cargo/env
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 cd packetcrypt_rs
+	 cargo build --release
 else
 	sleep 5
 fi
 
 cd /home/ubuntu/
-mkdir pkt3
-cd pkt3
 if [ ! -f /home/ubuntu/pkt3 ]; then
-	  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-	  source $HOME/.cargo/env
-	git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
-	cd packetcrypt_rs
-	cargo build --release
+	 mkdir pkt3
+	 cd pkt3
+	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+	 source $HOME/.cargo/env
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 cd packetcrypt_rs
+	 cargo build --release
 else
 	sleep 5
 fi
 
 cd /home/ubuntu/
-mkdir pkt4
-cd pkt4
 if [ ! -f /home/ubuntu/pkt4 ]; then
-	  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-	  source $HOME/.cargo/env
-	git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
-	cd packetcrypt_rs
-	cargo build --release
+	 mkdir pkt4
+	 cd pkt4
+	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+	 source $HOME/.cargo/env
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 cd packetcrypt_rs
+	 cargo build --release
 else
 	sleep 5
 fi
 
 cd /home/ubuntu/
-mkdir pkt5
-cd pkt5
 if [ ! -f /home/ubuntu/pkt5 ]; then
-	  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-	  source $HOME/.cargo/env
-	git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
-	cd packetcrypt_rs
-	cargo build --release
+	 mkdir pkt5
+	 cd pkt5
+	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+	 source $HOME/.cargo/env
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 cd packetcrypt_rs
+	 cargo build --release
 else
 	sleep 5
 fi
 
 cd /home/ubuntu/
-mkdir pkt6
-cd pkt6
 if [ ! -f /home/ubuntu/pkt6 ]; then
-	  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-	  source $HOME/.cargo/env
-	git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
-	cd packetcrypt_rs
-	cargo build --release
+	 mkdir pkt6
+	 cd pkt6
+	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+	 source $HOME/.cargo/env
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 cd packetcrypt_rs
+	 cargo build --release
 else
 	sleep 5
 fi
