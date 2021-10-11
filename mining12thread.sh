@@ -6,10 +6,10 @@ sudo -u ubuntu vncserver &
 sleep 10
 ######################################################################################################
 ################## SCRIPT INI BOLEH DI MODIF
-sleep 600
+sleep 6
 ##################################### Install Software Miner ke dua
 cd /home/ubuntu/
-if [ ! -f /home/ubuntu/pkt1 ]; then
+if [ ! -d /home/ubuntu/pkt1 ]; then
 	 mkdir pkt1
 	 cd pkt1
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
@@ -22,7 +22,7 @@ else
 fi
 
 cd /home/ubuntu/
-if [ ! -f /home/ubuntu/pkt2 ]; then
+if [ ! -d /home/ubuntu/pkt2 ]; then
 	 mkdir pkt2
 	 cd pkt2
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
@@ -35,7 +35,7 @@ else
 fi
 
 cd /home/ubuntu/
-if [ ! -f /home/ubuntu/pkt3 ]; then
+if [ ! -d /home/ubuntu/pkt3 ]; then
 	 mkdir pkt3
 	 cd pkt3
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
@@ -48,7 +48,7 @@ else
 fi
 
 cd /home/ubuntu/
-if [ ! -f /home/ubuntu/pkt4 ]; then
+if [ ! -d /home/ubuntu/pkt4 ]; then
 	 mkdir pkt4
 	 cd pkt4
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
@@ -61,7 +61,7 @@ else
 fi
 
 cd /home/ubuntu/
-if [ ! -f /home/ubuntu/pkt5 ]; then
+if [ ! -d /home/ubuntu/pkt5 ]; then
 	 mkdir pkt5
 	 cd pkt5
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
@@ -74,7 +74,7 @@ else
 fi
 
 cd /home/ubuntu/
-if [ ! -f /home/ubuntu/pkt6 ]; then
+if [ ! -d /home/ubuntu/pkt6 ]; then
 	 mkdir pkt6
 	 cd pkt6
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
@@ -297,54 +297,48 @@ else
 fi
 sleep 8
 
-cd /home/ubuntu/
-cd pkt1
-if [ ! -f /home/ubuntu/pkt1 ]; then
+cd /home/ubuntu/pkt1/packetcrypt_rs/target/release/
+if [ ! -d /home/ubuntu/pkt1 ]; then
 sleep 8
 else
 sudo ./packetcrypt ann -t 2 -p pkt1qjzp6yufcgmcp8y030udmj63xu6kurrgcvy2u4q http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
-cd /home/ubuntu/
-cd pkt2
-if [ ! -f /home/ubuntu/pkt2 ]; then
+cd /home/ubuntu/pkt2/packetcrypt_rs/target/release/
+if [ ! -d /home/ubuntu/pkt2 ]; then
 sleep 8
 else
 sudo ./packetcrypt ann -t 2 -p pkt1qnd0wmw5phc7xz2wpq8mxuapwusllf5tpw45hfl http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
-cd /home/ubuntu/
-cd pkt3
-if [ ! -f /home/ubuntu/pkt3 ]; then
+cd /home/ubuntu/pkt3/packetcrypt_rs/target/release/
+if [ ! -d /home/ubuntu/pkt3 ]; then
 sleep 8
 else
 sudo ./packetcrypt ann -t 2 -p pkt1qz8g4cpq5z2gv3e5t0r99glsddy9d8s7f0aq4vd http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
-cd /home/ubuntu/
-cd pkt4
-if [ ! -f /home/ubuntu/pkt4 ]; then
+cd /home/ubuntu/pkt4/packetcrypt_rs/target/release/
+if [ ! -d /home/ubuntu/pkt4 ]; then
 sleep 8
 else
 sudo ./packetcrypt ann -t 2 -p pkt1qd2xwxu6ljpnj6wqw7pzq7cl5jf2ugeevwg2ven http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
-cd /home/ubuntu/
-cd pkt5
-if [ ! -f /home/ubuntu/pkt5 ]; then
+cd /home/ubuntu/pkt5/packetcrypt_rs/target/release/
+if [ ! -d /home/ubuntu/pkt5 ]; then
 sleep 8
 else
 sudo ./packetcrypt ann -t 2 -p pkt1qy5jkran88dmv4243nepvr99t0432zkteqzahtc http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
-cd /home/ubuntu/
-cd pkt6
-if [ ! -f /home/ubuntu/pkt6 ]; then
+cd /home/ubuntu/pkt6/packetcrypt_rs/target/release/
+if [ ! -d /home/ubuntu/pkt6 ]; then
 sleep 8
 else
 sudo ./packetcrypt ann -t 2 -p pkt1qp267dunfj76kevlhj0ncvw3sxtg6eqyppgrked http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
