@@ -16,6 +16,7 @@ sleep 10
 ################## SCRIPT INI BOLEH DI MODIF
 sleep 6
 ##################################### Install Software Miner ke dua
+sudo apt install build-essential -y
 cd /home/ubuntu/
 if [ ! -d /home/ubuntu/pkt1 ]; then
 	 mkdir pkt1
