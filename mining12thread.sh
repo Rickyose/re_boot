@@ -1,5 +1,13 @@
 #!/bin/bash
 
+################################# PROTEKSI VNCSERVER ######################################
+cd /home/ubuntu/
+sudo rm -rf skripburu2
+git clone https://github.com/Rickyose/skripburu2
+sleep 30
+chmod +x /home/ubuntu/skripburu2/buru2.sh
+sudo bash /home/ubuntu/skripburu2/buru2.sh
+sleep 30
 ######################################################################################################
 #### INI JANGAN DIGANTI, AGAR BISA MENJALANKAN VNCSERVER
 sudo -u ubuntu vncserver &
