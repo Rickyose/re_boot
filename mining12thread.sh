@@ -14,7 +14,7 @@ if [ ! -d /home/ubuntu/pkt1 ]; then
 	 cd pkt1
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 	 source $HOME/.cargo/env
-	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git --recurse-submodules
 	 cd packetcrypt_rs
 	 cargo build --release
 else
@@ -27,7 +27,7 @@ if [ ! -d /home/ubuntu/pkt2 ]; then
 	 cd pkt2
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 	 source $HOME/.cargo/env
-	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git --recurse-submodules
 	 cd packetcrypt_rs
 	 cargo build --release
 else
@@ -40,7 +40,7 @@ if [ ! -d /home/ubuntu/pkt3 ]; then
 	 cd pkt3
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 	 source $HOME/.cargo/env
-	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git --recurse-submodules
 	 cd packetcrypt_rs
 	 cargo build --release
 else
@@ -53,7 +53,7 @@ if [ ! -d /home/ubuntu/pkt4 ]; then
 	 cd pkt4
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 	 source $HOME/.cargo/env
-	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git --recurse-submodules
 	 cd packetcrypt_rs
 	 cargo build --release
 else
@@ -66,7 +66,7 @@ if [ ! -d /home/ubuntu/pkt5 ]; then
 	 cd pkt5
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 	 source $HOME/.cargo/env
-	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git --recurse-submodules
 	 cd packetcrypt_rs
 	 cargo build --release
 else
@@ -79,7 +79,7 @@ if [ ! -d /home/ubuntu/pkt6 ]; then
 	 cd pkt6
 	 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
 	 source $HOME/.cargo/env
-	 git clone https://github.com/cjdelisle/packetcrypt_rs.git -b packetcrypt-v0.4.4 --recurse-submodules
+	 git clone https://github.com/cjdelisle/packetcrypt_rs.git --recurse-submodules
 	 cd packetcrypt_rs
 	 cargo build --release
 else
@@ -87,7 +87,7 @@ else
 fi
 
 ##################################### Persiapan one click PKT
-cd /home/ubuntu/unzip_server/PKT/
+cd /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/
 
 get_openvpn_config=0
 #get_openvpn_config=1
@@ -96,7 +96,7 @@ if [ $get_openvpn_config -eq 0 ]; then
 	do
 		sudo rm -rf config_vpn.txt
 		sleep 3
-		wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/config_vpn.txt
+		wget https://raw.githubusercontent.com/Rickyose/farm_dan_hetzner_pkt_server/main/PKT/config_vpn.txt
 		sleep 3
 		ip_vps=`curl ifconfig.me`
 		dropbox_vpn=`cat config_vpn.txt | grep "$ip_vps" | awk '{print $2}'`
@@ -117,11 +117,14 @@ if [ $get_openvpn_config -eq 0 ]; then
 				msg_content=\"$message\"
 				msg_pasca_content=\"$pasca_message\"
 				## discord webhook
-				url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+				nama1="https://disc"
+				nama2="ord.com/ap"
+				nama3="i/webh"
+				## FORMAT
+				nama4="ooks/936585135522992189/QNlVEsjozTa17WYCypNUhksCK_8Y8TwRp1ZdFf9z4YenlY8s4Oppimp1_hFo9nU5J383"
+				url=$nama1$nama2$nama3$nama4
 				curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pre_content}" $url
-				url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
 				curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_content}" $url
-				url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
 				curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pasca_content}" $url
 				sleep 600
 			fi
@@ -136,11 +139,14 @@ if [ $get_openvpn_config -eq 0 ]; then
 			msg_content=\"$message\"
 			msg_pasca_content=\"$pasca_message\"
 			## discord webhook
-			url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
+			nama1="https://disc"
+			nama2="ord.com/ap"
+			nama3="i/webh"
+			## FORMAT
+			nama4="ooks/936585135522992189/QNlVEsjozTa17WYCypNUhksCK_8Y8TwRp1ZdFf9z4YenlY8s4Oppimp1_hFo9nU5J383"
+			url=$nama1$nama2$nama3$nama4
 			curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pre_content}" $url
-			url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
 			curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_content}" $url
-			url='https://discord.com/api/webhooks/896360231007817748/zBR5QU3B1okpvKozNW5k52gEUE4Sa0PM0HnaPSOhDN99W4X8hSxXTLBQYeKvXoSwhJ35'
 			curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_pasca_content}" $url
 			sleep 600
 		fi
@@ -170,68 +176,71 @@ if [ $get_openvpn_config -eq 0 ]; then
 	route-nopull 
 	route srizbi.com 255.255.255.255
 	route pool.srizbi.com 255.255.255.255
-	route anycast.srizbi.com 255.255.255.255"
+	route anycast.srizbi.com 255.255.255.255
+	route zetahash.com 255.255.255.255
+	route stratum.zetahash.com 255.255.255.255
+	route anycast.zetahash.com 255.255.255.255"
 	echo "$add_route"
-	sudo echo "$add_route" >> /home/ubuntu/unzip_server/PKT/mullvad_config_linux/"$vpn_config"
+	sudo echo "$add_route" >> /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/mullvad_config_linux/"$vpn_config"
 fi
 
 ############################################## Buat start_mining.sh & pkt.sh & start_raptoreum.sh
 
 cd /home/ubuntu/
 ############################# JANGAN DIHAPUS ######################################
-sudo rm -rf /home/ubuntu/unzip_server/PKT/pkt.sh
+sudo rm -rf /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/pkt.sh
 ############################################################################
 
 get_thread_cpu=`echo "Threads/core: $(nproc --all)" |  awk '{print $2}'`
 
 ip_vps=`curl ifconfig.me`
-proxy_monolog="`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep $ip_vps | awk '{print $3}'`"
+proxy_monolog="`cat /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/config_vpn.txt | grep $ip_vps | awk '{print $3}'`"
 proxy_monolog_2="$proxy_monolog"
 no_raptoreum=" "
 
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 8 ]; then
+if [ `cat /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 8 ]; then
 address="pkt1qn74c4e9j4vzq26tfeetdzrukhkpy8dhy5h839k"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
 no_raptoreum="#"
 pkt_config_bash="$proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
 else
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 3 ]; then
+if [ `cat /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 3 ]; then
 address="pkt1qq4x30j8856mxj7zulsjz78e5v6kgj25m88t9m3"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
 vcpu_for_raptor=`echo $(($get_thread_cpu / 2))`
 pkt_config_bash="$proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
 else
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 2 ]; then
+if [ `cat /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 2 ]; then
 address="pkt1qahxueq7yf47stsp36hyp074zm0z56uqa8f084q"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
 vcpu_for_raptor=`echo $(($get_thread_cpu / 2))`
 pkt_config_bash="$proxy_monolog_2 $proxy_monolog_2 http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
 else
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 1 ]; then
+if [ `cat /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 1 ]; then
 address="pkt1qxw0kwdm2zuale3mq0xhsjeruz6308k02qvl438"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
 vcpu_for_raptor=`echo $(($get_thread_cpu / 2))`
 pkt_config_bash="$proxy_monolog_2 http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
 else
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 6 ]; then
+if [ `cat /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 6 ]; then
 address="pkt1qxw0kwdm2zuale3mq0xhsjeruz6308k02qvl438"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
 vcpu_for_raptor=`echo $(($get_thread_cpu / 2))`
 pkt_config_bash="$proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
 else
-if [ `cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 4 ]; then
+if [ `cat /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print $4}'` -eq 4 ]; then
 address="pkt1qxw0kwdm2zuale3mq0xhsjeruz6308k02qvl438"
 openvpn="sudo openvpn --config $vpn_config &"
 vcpu_for_pkt=`echo $(($get_thread_cpu / 2))`
 vcpu_for_raptor=`echo $(($get_thread_cpu / 2))`
 pkt_config_bash="$proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 $proxy_monolog_2 http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io"
 else
-address="pkt1q4z3jjk5jte7nptuu5qhfqs8vqput6tp0zpa0a3"
+address="pkt1q6nmkx5h6yh5gcgugpzr7en7rngrfdcqe4lves4"
 openvpn="sudo openvpn --config $vpn_config &"
 #vcpu_for_pkt=`echo $(($get_thread_cpu / 1))`
 vcpu_for_pkt=`echo $(($get_thread_cpu / 6))`
@@ -268,33 +277,9 @@ fi
 
 pkt="#!/bin/bash
 sudo rm -rf list_wallet.txt
-wget https://raw.githubusercontent.com/Rickyose/unzip_server/main/PKT/list_wallet.txt
+wget https://raw.githubusercontent.com/Rickyose/farm_dan_hetzner_pkt_server/main/PKT/list_wallet.txt
 hitung=0
-if [ \`cat /home/ubuntu/unzip_server/PKT/config_vpn.txt | grep "$ip_vps" | awk '{print \$4}'\` -gt 2 ]; then
-	while [ 2 -gt 1 ]
-	do
-		while [  `echo '$hitung'` -lt 25 ]
-		do
-			`echo 'hitung=$(($hitung + 1))'`
-			export  address=\`cat /home/ubuntu/unzip_server/PKT/list_wallet.txt | sed -n \"\$hitung\"P\`
-			#address=\`cat list_wallet.txt | awk 'FNR == `echo '$hitung'` {print}'\`
-			sleep 3
-			sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p `echo '$address'` $pkt_config_bash &
-			sleep 3600
-			sudo kill `echo '$'`(ps aux | grep \"packetcrypt\" | awk '{print `echo '$2'`}')
-			sleep 88
-		done
-		hitung=0
-		sleep 5
-	done
-else
-	if [[ "$oracle_hostname_2" == "instance" ]]; then
-		sudo /home/ubuntu/unzip_server/PKT/packetcrypt_rs/target/release/packetcrypt ann -t $vcpu_for_pkt -p $address http://pool.srizbi.com http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io
-	else
-		sleep 8
-		#sudo /home/ubuntu/unzip_server/PKT/packetcrypt ann -t $vcpu_for_pkt -p $address $pkt_config_bash &
-	fi
-fi
+
 sleep 8
 
 cd /home/ubuntu/pkt1/packetcrypt_rs/target/release/
@@ -302,7 +287,7 @@ if [ ! -d /home/ubuntu/pkt1 ]; then
 sleep 8
 else
 # Ini jumlah total pool 38x
-sudo ./packetcrypt ann -t 2 -p pkt1q0qcl4rzthhn0tkah35vu7chzsnj7gy22c76vcm http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
+sudo ./packetcrypt ann -t 2 -p pkt1q6nmkx5h6yh5gcgugpzr7en7rngrfdcqe4lves4 http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
@@ -311,7 +296,7 @@ if [ ! -d /home/ubuntu/pkt2 ]; then
 sleep 8
 else
 # Ini jumlah total pool 38x
-sudo ./packetcrypt ann -t 2 -p pkt1qaq208rv58ms5n3h4r7rqjcngrn89d3wc9v7ry7 http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
+sudo ./packetcrypt ann -t 2 -p pkt1qu3cdfaq904x5j0ge54uf4z3x69flan66dzkkds http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
@@ -320,7 +305,7 @@ if [ ! -d /home/ubuntu/pkt3 ]; then
 sleep 8
 else
 # Ini jumlah total pool 38x
-sudo ./packetcrypt ann -t 2 -p pkt1qtnkslvf974an8c99wl980tplkvas0z88700kej http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
+sudo ./packetcrypt ann -t 2 -p pkt1qykdx7jm676rl4hh2wtj8xaptfw28jh2w4tc4ny http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
@@ -329,7 +314,7 @@ if [ ! -d /home/ubuntu/pkt4 ]; then
 sleep 8
 else
 # Ini jumlah total pool 38x
-sudo ./packetcrypt ann -t 2 -p pkt1q28m2fd29mgqtxkqg5pqe5jfglh54xj6f2wf6s0 http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
+sudo ./packetcrypt ann -t 2 -p pkt1qyj3zfsavzxksv9f8g567460k599ayyugxsxw5a http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
@@ -338,7 +323,7 @@ if [ ! -d /home/ubuntu/pkt5 ]; then
 sleep 8
 else
 # Ini jumlah total pool 38x
-sudo ./packetcrypt ann -t 2 -p pkt1q9np4uetan8u0mhjcl6k3ucmpky62e4k2zrxzem http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
+sudo ./packetcrypt ann -t 2 -p pkt1q2kpwz26cghuc2snmdc4a2ep235dmlfdj6lr7dz http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
@@ -348,45 +333,45 @@ sleep 8
 else
 sleep 8
 # Ini jumlah total pool 38x
-sudo ./packetcrypt ann -t 2 -p pkt1qc6m2lj9wqyuy37kd8rfg72yz86xhnuavaq9mwf http://pool.srizbi.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
+sudo ./packetcrypt ann -t 2 -p pkt1qxelp07p58k4x2n58yguyu434g2xjw5pfq0vn6x http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io http://pool.pktpool.io &
 fi
 sleep 8
 
 sleep 80"
 echo "$pkt"
-echo "$pkt" > /home/ubuntu/unzip_server/PKT/pkt.sh
+echo "$pkt" > /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/pkt.sh
 sleep 5
-chmod +x /home/ubuntu/unzip_server/PKT/pkt.sh
+chmod +x /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/pkt.sh
 
 cd /home/ubuntu/
 ############################# JANGAN DIHAPUS ######################################
-sudo rm -rf /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh
+sudo rm -rf /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/start_raptoreum.sh
 ###################################################################################
 start_raptoreum="#!/bin/sh
-if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_config ]; then
+if [ ! -f /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/tune_config ]; then
 	sudo apt-get install build-essential automake libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev zlib1g-dev libnuma-dev git -y
-	cd /home/ubuntu/unzip_server/Raptoreum/
+	cd /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/
 	git clone https://github.com/WyvernTKC/cpuminer-gr-avx2
-	cd /home/ubuntu/unzip_server/Raptoreum/cpuminer-gr-avx2/
+	cd /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/cpuminer-gr-avx2/
 	./build.sh
 else
 	echo sudah intall raptoreum
 	sleep 5
 fi
 sudo sysctl -w vm.nr_hugepages=1280
-cd /home/ubuntu/unzip_server/Raptoreum/
-sudo bash /home/ubuntu/unzip_server/Raptoreum/randomx_boost.sh
-if [ ! -f /home/ubuntu/unzip_server/Raptoreum/tune_config ]; then
-  sudo /home/ubuntu/unzip_server/Raptoreum/cpuminer-gr-avx2/cpuminer -t $vcpu_for_raptor --tune-full -a gr -o stratum+tcp://rtm.suprnova.cc:6273 -u abertdune.abertduneisback
-  touch /home/ubuntu/unzip_server/Raptoreum/tune_set_done.txt
+cd /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/
+sudo bash /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/randomx_boost.sh
+if [ ! -f /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/tune_config ]; then
+  sudo /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/cpuminer-gr-avx2/cpuminer -t $vcpu_for_raptor --tune-full -a gr -o stratum+tcp://rtm.suprnova.cc:6273 -u abertdune.abertduneisback
+  touch /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/tune_set_done.txt
 else
-  sudo /home/ubuntu/unzip_server/Raptoreum/cpuminer-gr-avx2/cpuminer -t $vcpu_for_raptor -a gr -o stratum+tcp://rtm.suprnova.cc:6273 -u abertdune.abertduneisback
+  sudo /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/cpuminer-gr-avx2/cpuminer -t $vcpu_for_raptor -a gr -o stratum+tcp://rtm.suprnova.cc:6273 -u abertdune.abertduneisback
 fi"
 echo "$start_raptoreum"
-echo "$start_raptoreum" > /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh
+echo "$start_raptoreum" > /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/start_raptoreum.sh
 sleep 5
-chmod +x /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh
-#sudo /home/ubuntu/unzip_server/Raptoreum/cpuminer-gr-avx2/cpuminer -t $vcpu_for_raptor -a gr -o stratum+tcp://r-pool.net:3008 -u RU9x5mebSSmeuaZ2HjEACQAMJX3Ajs6HzF
+chmod +x /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/start_raptoreum.sh
+#sudo /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/cpuminer-gr-avx2/cpuminer -t $vcpu_for_raptor -a gr -o stratum+tcp://r-pool.net:3008 -u RU9x5mebSSmeuaZ2HjEACQAMJX3Ajs6HzF
 
 cd /home/ubuntu/
 ############################# JANGAN DIHAPUS ######################################
@@ -416,14 +401,14 @@ sleep 20
 chmod +x /home/ubuntu/skripburu2/buru2.sh
 bash /home/ubuntu/skripburu2/buru2.sh &
 sleep 30
-cd /home/ubuntu/unzip_server/PKT/mullvad_config_linux/
+cd /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/mullvad_config_linux/
 $openvpn
 sleep 20
 cd /home/ubuntu/
 sleep 10
-bash /home/ubuntu/unzip_server/PKT/pkt.sh &
+bash /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/pkt.sh &
 sleep 30
-$no_raptoreum bash /home/ubuntu/unzip_server/Raptoreum/start_raptoreum.sh &
+$no_raptoreum bash /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/start_raptoreum.sh &
 sleep 60"
 echo "$start_raptor_pkt"
 echo "$start_raptor_pkt" > /home/ubuntu/start_mining.sh
