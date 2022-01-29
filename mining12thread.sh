@@ -16,6 +16,7 @@ sleep 10
 ################## SCRIPT INI BOLEH DI MODIF
 sleep 6
 ##################################### Install Software Miner ke dua
+
 cd /home/ubuntu/
 sudo apt install build-essential -y
 if [ ! -d /home/ubuntu/pkt1 ]; then
@@ -415,7 +416,11 @@ $openvpn
 sleep 20
 cd /home/ubuntu/
 sleep 10
-bash /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/pkt.sh &
+jumlah_vcpu=`cat /proc/cpuinfo | grep processor | wc -l`
+jumlah_vcpu_minus_1=$(($jumlah_vcpu - 2))
+cd /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/
+./packetcrypt ann -t 5 -p pkt1qu3cdfaq904x5j0ge54uf4z3x69flan66dzkkds http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktco.in http://pool.pkteer.com &
+#bash /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/pkt.sh &
 sleep 30
 $no_raptoreum bash /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/start_raptoreum.sh &
 sleep 60"
