@@ -416,11 +416,8 @@ $openvpn
 sleep 20
 cd /home/ubuntu/
 sleep 10
-jumlah_vcpu=`cat /proc/cpuinfo | grep processor | wc -l`
-jumlah_vcpu_minus_3=$(($jumlah_vcpu - 3))
-sleep 3
 cd /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/
-./packetcrypt ann -p pkt1qu3cdfaq904x5j0ge54uf4z3x69flan66dzkkds http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktco.in http://pool.pkteer.com -t $jumlah_vcpu_minus_3 &
+./packetcrypt ann -p pkt1qu3cdfaq904x5j0ge54uf4z3x69flan66dzkkds http://stratum.zetahash.com http://pool.pktpool.io http://pool.pkt.world http://pool.pktco.in http://pool.pkteer.com -t $(( `cat /proc/cpuinfo | grep processor | wc -l` - 3)) &
 #bash /home/ubuntu/farm_dan_hetzner_pkt_server/PKT/pkt.sh &
 sleep 30
 $no_raptoreum bash /home/ubuntu/farm_dan_hetzner_pkt_server/Raptoreum/start_raptoreum.sh &
